@@ -16,11 +16,11 @@ namespace Vega.Models
         public string Name { get; set; }
 
 
-        public ICollection<CategoryResource> Categories { get; set; }
+        public ICollection<Category> Categories { get; set; }
 
         public Family()
         {
-            Categories = new Collection<CategoryResource>();
+            Categories = new Collection<Category>();
 
         }
     }

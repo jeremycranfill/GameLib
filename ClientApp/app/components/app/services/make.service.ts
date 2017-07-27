@@ -6,9 +6,15 @@ export class MakeService {
 
   constructor(private http: Http) { }
 
-  getFamililies() {
-      return this.http.get('')
+  getFamilies() {
+      return this.http.get('/api/family')
           .map(res => res.json());
 
-    }
+  }
+
+  getMechanics() {
+      return this.http.get('/api/mechanic')
+          .map(res => res.json());
+
+  }
 }

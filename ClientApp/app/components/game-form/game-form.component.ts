@@ -7,13 +7,25 @@ import { MakeService } from "../app/services/make.service";
   styleUrls: ['./game-form.component.css']
 })
 export class GameFormComponent implements OnInit {
-    families; 
+    families: any[]; 
+    categories: any[];
+    mechanics: any[];
+    game: any = {};
   constructor(private makeService: MakeService) { }
 
   ngOnInit() {
-      this.makeService.getFamililies().subscribe(families => this.families = families);
+      this.makeService.getFamilies().subscribe(families => this.families = families);
+      this.makeService.getMechanics().subscribe(mechanics => this.mechanics = mechanics);
+      
 
-      console.log("")
+
+
+
   }
+  onMakeChange() {
+      var selectedFamily = this.families.find(m => m.id == this.game.family)
+      this.categories = selectedFamily.categories;
+    }
 
 }
+

@@ -23,7 +23,7 @@ namespace Vega.Controllers
         public FamilyController(VegaDbContext context, IMapper mapper)
         {
             this.context = context;
-            
+            this.mapper = mapper;
 
         }
             [HttpGet("/api/family")]
@@ -31,7 +31,7 @@ namespace Vega.Controllers
             {
 
             var fams = await context.Families.Include(m => m.Categories).ToListAsync();
-            return mapper.Map<List<Family>, List<FamilyResource> > (fams);
+            return mapper.Map<List<Family>, List<FamilyResource>> (fams);
 
             }
 

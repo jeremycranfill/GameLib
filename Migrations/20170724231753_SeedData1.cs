@@ -4,12 +4,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Vega.Migrations
 {
-    public partial class Constraints : Migration
+    public partial class SeedData1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-       
 
         }
 

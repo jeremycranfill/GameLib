@@ -40,7 +40,7 @@ namespace Vega
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, VegaDbContext context)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -69,6 +69,9 @@ namespace Vega
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
+            SeedData.Initialize(context);
+
         }
     }
 }

@@ -2,15 +2,19 @@
 <form>
     <div class="form-group">
        <label for="Family">Family</label>
-        <select  id="Family" class="form-control">
+        <select  id="Family" class="form-control" (change)="onMakeChange()" [(ngModel)]="game.family" name="Family">
            <option value=""></option> 
-            <option *ngFor="let m of families" value=" {{m.id}}">{{m.name}}</option>
+            <option *ngFor="let f of families" value=" {{f.id}}">{{f.name}}</option>
         </select>
 
     </div>
      <div class="form-group">
          <label for="category">Category</label>
-          <select  id="category" class="form-control"></select>
+          <select  id="category" class="form-control">
+              <option value=""></option>
+              <option *ngFor="let m of categories" value="{{m.id}}">{{m.name}}</option>
+
+          </select>
      </div>                  
 </form>
 

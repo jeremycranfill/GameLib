@@ -18,7 +18,7 @@ namespace Vega.Models
 
         public string Name { get; set; }
 
-        public Family family {get; set;}
+        public Family Family {get; set;}
         public int FamilyId { get; set; }
 
     }

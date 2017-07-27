@@ -8,8 +8,8 @@ using Vega.Data;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    [Migration("20170721030032_new")]
-    partial class @new
+    [Migration("20170724225835_SeedData")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,13 +22,15 @@ namespace Vega.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("CategoryId");
+                    b.Property<int>("FamilyId");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("FamilyId");
 
                     b.ToTable("Category");
                 });
@@ -38,29 +40,34 @@ namespace Vega.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CategoryId");
-
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Families");
                 });
 
-            modelBuilder.Entity("Vega.Models.Category", b =>
+            modelBuilder.Entity("Vega.Models.Mechanic", b =>
                 {
-                    b.HasOne("Vega.Models.Category")
-                        .WithMany("Categories")
-                        .HasForeignKey("CategoryId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Mechanics");
                 });
 
-            modelBuilder.Entity("Vega.Models.Family", b =>
+            modelBuilder.Entity("Vega.Models.Category", b =>
                 {
-                    b.HasOne("Vega.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
+                    b.HasOne("Vega.Models.Family", "family")
+                        .WithMany("Categories")
+                        .HasForeignKey("FamilyId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

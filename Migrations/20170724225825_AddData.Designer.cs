@@ -8,9 +8,10 @@ using Vega.Data;
 namespace Vega.Migrations
 {
     [DbContext(typeof(VegaDbContext))]
-    partial class VegaDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170724225825_AddData")]
+    partial class AddData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -31,7 +32,7 @@ namespace Vega.Migrations
 
                     b.HasIndex("FamilyId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Vega.Models.Family", b =>
@@ -64,7 +65,7 @@ namespace Vega.Migrations
 
             modelBuilder.Entity("Vega.Models.Category", b =>
                 {
-                    b.HasOne("Vega.Models.Family", "Family")
+                    b.HasOne("Vega.Models.Family", "family")
                         .WithMany("Categories")
                         .HasForeignKey("FamilyId")
                         .OnDelete(DeleteBehavior.Cascade);

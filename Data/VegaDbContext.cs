@@ -18,6 +18,7 @@ namespace Vega.Data
 
         public DbSet<Family> Families { get; set; }
         public DbSet<Mechanic> Mechanics { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
     }
 }
