@@ -10,7 +10,8 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { GameFormComponent } from './components/game-form/game-form.component';
-import { MakeService } from "./components/app/services/make.service";
+import { GameService } from "./components/app/services/game.service";
+
 
 
 
@@ -36,7 +37,7 @@ import { MakeService } from "./components/app/services/make.service";
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers: [MakeService]
+    providers: [GameService]
 })
 
 

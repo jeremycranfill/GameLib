@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MakeService } from "../app/services/make.service";
+import { GameService } from "../app/services/game.service";
+
 
 @Component({
   selector: 'app-game-form',
@@ -11,11 +12,13 @@ export class GameFormComponent implements OnInit {
     categories: any[];
     mechanics: any[];
     game: any = {};
-  constructor(private makeService: MakeService) { }
+  
+    constructor(private gameService: GameService) { }
 
   ngOnInit() {
-      this.makeService.getFamilies().subscribe(families => this.families = families);
-      this.makeService.getMechanics().subscribe(mechanics => this.mechanics = mechanics);
+      this.gameService.getFamilies().subscribe(families => this.families = families);
+      this.gameService.getMechanics().subscribe(mechanics => this.mechanics = mechanics);
+      
       
 
 

@@ -16,6 +16,49 @@
 
           </select>
      </div>                  
+
+
+    <p>Recommend game?</p>
+   
+    <label for="recommend" class="radio-inline">
+        
+        <input type="radio" id="recommend" vale="true" name="recommended"/> Yes
+        
+      </label>
+  
+
+    
+        <label for="notrecommend" class="radio-inline">
+
+            <input type="radio" id="notrecommend" vale="false" name="recommended"/>No
+
+        </label>
+ 
+
+<h2>Mechanics</h2>
+ <div *ngFor="let m of mechanics" class="checkbox">
+     <label for="mechanic{{m.id}}">
+         <input type="checkbox" id="mechanic{{m.id}}" />{{m.name}}
+     </label>
+ </div>
+
+<div class="form-group">
+    <label for="Designer">Designer</label>
+    <input id="Designer" type="text" class="form-control" />
+</div>
+
+    <div class="form-group">
+        <label for="Publisher">Publisher</label>
+        <input id="Publisher" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="Year">Year Released</label>
+        <input id="Year" type="number" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">Save</button>
+
 </form>
 
         
