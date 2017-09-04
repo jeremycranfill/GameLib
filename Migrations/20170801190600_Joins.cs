@@ -28,7 +28,7 @@ namespace Vega.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Designer = table.Column<string>(maxLength: 255, nullable: false),
+                    Title = table.Column<string>(maxLength: 255, nullable: false),
                     Family = table.Column<int>(nullable: false),
                     FamilyID = table.Column<int>(nullable: false),
                     LastUpdate = table.Column<DateTime>(nullable: false),

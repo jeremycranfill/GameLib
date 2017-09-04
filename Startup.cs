@@ -32,8 +32,10 @@ namespace Vega
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<IGameRepository, GameRepository>();
             services.AddDbContext<VegaDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:Default"]));
             services.AddAutoMapper();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             // Add framework services.
             services.AddMvc();

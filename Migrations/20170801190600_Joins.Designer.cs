@@ -54,7 +54,7 @@ namespace Vega.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Designer")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(255);
 

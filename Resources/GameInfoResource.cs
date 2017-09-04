@@ -6,7 +6,7 @@ namespace Vega.Models
     {
         [Required]
         [StringLength(255)]
-        public string Designer { get; set; }
+        public string Title { get; set; }
         [Required]
         [StringLength(255)]
         public string Publisher { get; set; }

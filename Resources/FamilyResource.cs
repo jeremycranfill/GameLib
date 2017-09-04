@@ -8,19 +8,15 @@ using Vega.Resources;
 
 namespace Vega.Resources
 {
-    public class FamilyResource
+    public class FamilyResource : KeyValuePairResource
     {
 
-        public int Id { get; set; }
-       
-        public string Name { get; set; }
-
-
-        public ICollection<CategoryResource> Categories { get; set; }
+     
+        public ICollection<KeyValuePairResource> Categories { get; set; }
 
         public FamilyResource()
         {
-            Categories = new Collection<CategoryResource>();
+            Categories = new Collection<KeyValuePairResource>();
 
         }
     }

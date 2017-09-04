@@ -19,20 +19,20 @@ namespace Vega.Controllers
     {
         // GET: /<controller>/
         private readonly VegaDbContext context;
-       
+        private readonly IMapper mapper;
 
-        public MechanicController(VegaDbContext context)
+        public MechanicController(VegaDbContext context, IMapper mapper)
         {
             this.context = context;
-            
+            this.mapper = mapper;
 
         }
             [HttpGet("/api/mechanic")]
-            public async Task<IEnumerable<Mechanic>> GetMechanics()
+            public async Task<IEnumerable<KeyValuePairResource>> GetMechanics()
             {
 
             var mechs = await context.Mechanics.ToListAsync();
-            return mechs;
+            return mapper.Map<List<Mechanic>, List<KeyValuePairResource>>(mechs);
 
             }
 

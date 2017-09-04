@@ -10,13 +10,13 @@ namespace Vega.Models
     public class Game
     {
         public int Id { get; set; }
-        public int Family { get; set; }
-        public int FamilyID { get; set; }
+        public Category Catergory { get; set; }
+        public int CategoryId { get; set; }
         
         public bool Recommended { get; set; }
         [Required]
         [StringLength(255)]
-        public string Designer { get; set; }
+        public string Title { get; set; }
         [Required]
         [StringLength(255)]
         public string Publisher { get; set; }

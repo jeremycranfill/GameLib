@@ -5,16 +5,11 @@ using System.Threading.Tasks;
 
 namespace Vega.Resources
 {
-    public class CategoryResource
+    public class KeyValuePairResource
     {
-
-
+          
         public int Id { get; set; }
-      
-    
-
         public string Name { get; set; }
-
-
     }
 }
+
